@@ -1,0 +1,43 @@
+[
+  {
+    "bookSourceComment": "2026-11-22 按站点实际结构校正：搜索改为 GET /search/?searchkey=（原 POST body 不生效）；详情页与目录同页，目录取 #list；正文在 #chaptercontent；分页续章为「下一章」(1_2.html) 而非 /2.html。",
+    "bookSourceGroup": "自建",
+    "bookSourceName": "小原文学网",
+    "bookSourceType": 0,
+    "bookSourceUrl": "https://min-yuan.com",
+    "customOrder": 0,
+    "enabled": true,
+    "enabledExplore": false,
+    "exploreUrl": "",
+    "header": "{\"User-Agent\":\"Mozilla/5.0 (Linux; Android 13) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36\"}",
+    "lastUpdateTime": 0,
+    "respondTime": 180000,
+    "searchUrl": "/search/?searchkey=${key}",
+    "weight": 0,
+    "ruleSearch": {
+      "bookList": "class.item",
+      "name": "tag.dt@tag.a@text||tag.a@text",
+      "author": "class.btm@text##_.*##",
+      "bookUrl": "tag.dt@tag.a@href||tag.a@href",
+      "coverUrl": "tag.img@src"
+    },
+    "ruleExplore": {},
+    "ruleBookInfo": {
+      "name": "id.info@tag.h1@text||tag.h1@text",
+      "author": "id.info@tag.p@text##作者：##||id.info@text##[\\s\\S]*?作者：(.*?)(?:类\\s*别|状\\s*态|最新章节|更新)[\\s\\S]*##$1",
+      "intro": "id.intro@text",
+      "coverUrl": "id.fmimg@tag.img@src||tag.img@src",
+      "lastChapter": "class.lastchapter@tag.a@text",
+      "tocUrl": ""
+    },
+    "ruleToc": {
+      "chapterList": "id.list@tag.dd@tag.a",
+      "chapterName": "text",
+      "chapterUrl": "href"
+    },
+    "ruleContent": {
+      "content": "id.chaptercontent@html",
+      "nextContentUrl": "text.下一章@href"
+    }
+  }
+]
