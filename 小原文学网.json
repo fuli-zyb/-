@@ -1,0 +1,40 @@
+[
+  {
+    "bookSourceName": "小原文学网",
+    "bookSourceUrl": "https://min-yuan.com",
+    "enabled": true,
+    "searchable": 1,
+    "ruleSearch": {
+      "request": {
+        "method": "POST",
+        "url": "/search/",
+        "body": "searchkey=${key}"
+      },
+      "bookList": "div[@class=item]||div[@class=bookbox]||li",
+      "name": "a@text",
+      "author": "span@text||p@text",
+      "bookUrl": "a@href"
+    },
+    "ruleExplore": {
+      "bookList": "div[@class=item]||div[@class=bookbox]||li",
+      "name": "a@text",
+      "author": "span@text||p@text",
+      "bookUrl": "a@href"
+    },
+    "ruleBookInfo": {
+      "name": "h1@text",
+      "author": "p[@class=author]@text##作者：##||text##作者：##",
+      "intro": "div[@id=intro]@text||div[@class=intro]@text",
+      "coverUrl": "img@src"
+    },
+    "ruleToc": {
+      "chapterList": "dd a||ul li a",
+      "chapterName": "text",
+      "chapterUrl": "href"
+    },
+    "ruleContent": {
+      "content": "id.booktxt@text",
+      "nextContentUrl": "a[@rel=next]@href"
+    }
+  }
+]
